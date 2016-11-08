@@ -7,6 +7,6 @@ Agile Web Development with Rails 5
 Practical exercises of "Agile Web Development with Rails 4" book done.
 
 You can buy the book in PragProg
-[page](https://pragprog.com/book/rails4/agile-web-development-with-rails-4)
+[page](https://pragprog.com/book/rails4/agile-web-development-with-rails-4).
 
 :)
