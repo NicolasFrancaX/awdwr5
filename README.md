@@ -1,7 +1,7 @@
-Agile Web Development with Rails 4
+Agile Web Development with Rails 5
 =================================================
 
-<img src="https://s-media-cache-ak0.pinimg.com/600x315/02/94/66/029466a0e9ca9638a38abc9b02c5249e.jpg"/>
+<img src="https://softnshare.files.wordpress.com/2016/04/rails5.jpg?w=1000&h=600&crop=1"/>
 
 
 Practical exercises of "Agile Web Development with Rails 4" book done.
