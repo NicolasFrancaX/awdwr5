@@ -1,0 +1,38 @@
+<%= form_for(order) do |f| %>
+  <% if order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= raw t('errors.template.header', count: @order.errors.count, model: t('activerecord.models.order')) %></h2>
+      <p><%= t('errors.template.body') %></p>
+
+      <ul>
+      <% order.errors.full_messages.each do |message| %>
+        <li><%= raw message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, t('.name') %>
+    <%= f.text_field :name, size: 40 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address, t('.address_html') %>
+    <%= f.text_area :address, rows: 3, cols: 40 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, t('.email') %>
+    <%= f.text_field :email, size: 40 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pay_type, t('.pay_type') %>
+    <%= f.select :pay_type, Order.pay_types.keys, prompt: t('.pay_prompt_html') %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit t('.submit') %>
+  </div>
+<% end %>

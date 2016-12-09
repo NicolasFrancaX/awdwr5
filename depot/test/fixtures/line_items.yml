@@ -3,7 +3,9 @@
 one:
   product: two
   cart: one
+  order: one
 
 two:
-  product: two
+  product: ruby
   cart: two
+  order: one

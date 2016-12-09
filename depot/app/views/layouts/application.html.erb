@@ -8,6 +8,11 @@
   </head>
   <body class='<%= controller.controller_name %>'>
     <div id="banner">
+      <%= form_tag store_index_path, class: 'locale' do %>
+        <%= select_tag 'set_locale', options_for_select(LANGUAGES, I18n.to_s), onchange: 'this.form.submit()' %>
+        <%= submit_tag 'submit' %>
+        <%= javascript_tag "$('.locale input').hide()" %>
+      <% end %>
       <%= image_tag 'logo.svg', alt: 'The Progamatic Bookshelf' %>
       <span class="title"><%= @page_title %></span>
     </div>
@@ -22,12 +27,22 @@
         </div>
 
         <ul>
-          <li><a href="http://www....">Home</a></li>
-          <li><a href="http://www..../faq">Questions</a></li>
-          <li><a href="http://www..../news">News</a></li>
-          <li><a href='http://www..../contact'>Contact</a></li>
+          <li><a href="http://www...."><%= t('.home') %></a></li>
+          <li><a href="http://www..../faq"><%= t('.questions') %></a></li>
+          <li><a href="http://www..../news"><%= t('.news') %></a></li>
+          <li><a href='http://www..../contact'><%= t('.contact') %></a></li>
         </ul>
       </div>
+
+      <% if session[:user_id] %>
+        <ul>
+          <li><%= link_to 'Orders', orders_path %></li>
+          <li><%= link_to 'Products', products_path %></li>
+          <li><%= link_to 'Users', users_path %></li>
+        </ul>
+        <%= button_to 'Logout', logout_path, method: :delete %>
+      <% end %>
+
       <div id="main">
         <%= yield %>
       </div>

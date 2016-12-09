@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Your Pragmatic Catalog</h1>
+<h1><%= t('.title_html') %></h1>
 
 <% cache @products do %>
   <% @products.each do |product| %>
@@ -11,7 +11,7 @@
         <%= sanitize(product.description) %>
         <div class="price_line">
           <span class="price"><%= number_to_currency(product.price) %></span>
-          <%= button_to 'Add to Cart', line_items_path(product_id: product), remote: true %>
+          <%= button_to t('.add_html'), line_items_path(product_id: product, locale: I18n.locale), remote: true %>
         </div>
       </div>
     <% end %>

@@ -54,6 +54,16 @@ class ProductsController < ApplicationController
     end
   end
 
+  def who_bought
+    @product = Product.find(params[:id])
+    @latest_order = @product.orders.order(:updated_at).last
+    if stale?(@latest_order)
+      respond_to do |format|
+        format.atom
+      end
+    end
+  end
+
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
